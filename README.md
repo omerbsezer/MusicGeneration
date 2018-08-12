@@ -30,3 +30,4 @@ Music Inference Model is similar trained model and it is implemented with "music
 Finally, your generated music is saved in output/my_music.midi.
 
 ## References
+* Andrew Ng, Sequential Models Course, Deep Learning Specialization
