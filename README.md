@@ -2,6 +2,11 @@
 
 With trained DL model (LSTM), new sequences of time series data can be predicted. In this project, it will be implemented a model which inputs a sample jazz music and samples/generates a new music. Code is adapted from Andrew Ng's Course 'Sequential models'.
 
+## Run
+* To run code, download music21 toolkit from [http://web.mit.edu/music21/](http://web.mit.edu/music21/). "pip install music21". 
+* Run main.py
+
+
 ## Input File and Parameters
 Model is trained with "data/original_music"
 * "X, Y, n_values, indices_values = load_music_utils()"
