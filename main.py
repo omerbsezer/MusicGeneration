@@ -99,10 +99,10 @@ def music_inference_model(LSTM_cell, densor, n_values=78, n_a=64, Ty=100):
         # Perform one step of LSTM_cell (≈1 line); LSTM_cell = LSTM(n_a, return_state = True)
         a, _, c = LSTM_cell(x, initial_state=[a, c])
 
-        # Apply Dense layer to the hidden state output of the LSTM_cell (≈1 line); densor = Dense(n_values, activation='softmax')
+        # Apply Dense layer to the hidden state output of the LSTM_cell; densor = Dense(n_values, activation='softmax')
         out = densor(a)
 
-        # Append the prediction "out" to "outputs". out.shape = (None, 78) (≈1 line)
+        # Append the prediction "out" to "outputs". out.shape = (None, 78)
         outputs.append(out)
 
         # Select the next value according to "out", and set "x" to be the one-hot representation of the
@@ -110,7 +110,7 @@ def music_inference_model(LSTM_cell, densor, n_values=78, n_a=64, Ty=100):
         #           the line of code you need to do this.
         x = Lambda(one_hot)(out)
 
-    # Create model instance with the correct "inputs" and "outputs" (≈1 line)
+    # Create model instance with the correct "inputs" and "outputs" 
     inference_model = Model([x0, a0, c0], outputs)
 
     return inference_model
