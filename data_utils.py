@@ -69,7 +69,7 @@ def generate_music(inference_model, corpus = corpus, abstract_grammars = abstrac
         predicted_tones +=  pred[-1]
                 
         #### POST PROCESSING OF THE PREDICTED TONES ####
-        # We will consider "A" and "X" as "C" tones. It is a common choice.
+        # consider "A" and "X" as "C" tones. It is a common choice.
         predicted_tones = predicted_tones.replace(' A',' C').replace(' X',' C')
 
         # Pruning #1: smoothing measure
@@ -129,10 +129,9 @@ def predict_and_sample(inference_model, x_initializer = x_initializer, a_initial
     indices -- numpy-array of shape (Ty, 1), matrix of indices representing the values generated
     """
     
-    ### START CODE HERE ###
     pred = inference_model.predict([x_initializer, a_initializer, c_initializer])
     indices = np.argmax(pred, axis = -1)
     results = to_categorical(indices, num_classes=78)
-    ### END CODE HERE ###
+   
     
     return results, indices
